@@ -48,16 +48,16 @@ def move():
     
     directions = ['up', 'down', 'left', 'right']
 	
-    if (int(data['you']['body']['data'][0]['x']) == 0):
+    if (int(data['you']['body']['data'][0]['x']) == 3):
         direction = 'right'
 	
-    elif (int(data['you']['body']['data'][0]['y']) == 0):
+    elif (int(data['you']['body']['data'][0]['y']) == 3):
         direction = 'up'
 		
-    elif (int(data['you']['body']['data'][0]['x']) == len(data['width']) - 1):
+    elif (int(data['you']['body']['data'][0]['x']) == len(data['width']) - 3):
 	    direction = 'left'
 		
-    elif (int(data['you']['body']['data'][0]['x']) == len(data['height']) - 1):
+    elif (int(data['you']['body']['data'][0]['x']) == len(data['height']) - 3):
 	    direction = 'down'
 	
     print direction
