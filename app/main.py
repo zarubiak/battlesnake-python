@@ -51,8 +51,8 @@ def move():
     snakehead_x = int(data['you']['body']['data'][0]['x'])
     snakehead_y = int(data['you']['body']['data'][0]['y'])
         
-    food_x = int(data['food']['data']['x'])
-    food_y = int(data['food']['data']['y'])
+    food_x = int(data['food']['data'][0]['x'])
+    food_y = int(data['food']['data'][0]['y'])
 	
     if (snakehead_x > food_x):
         direction = 'left';
