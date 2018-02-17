@@ -60,7 +60,6 @@ def move():
     elif (int(data['you']['body']['data'][0]['x']) == len(data['height']) - 3):
 	    direction = 'down'
 	
-	direction = 'right'
     print direction
     return {
         'move': direction,
