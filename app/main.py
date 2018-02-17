@@ -49,9 +49,9 @@ def move():
     directions = ['up', 'down', 'left', 'right']
 	
     x = int(data['you']['body']['data'][0]['x'])
-	y = int(data['you']['body']['data'][0]['y'])
+    y = int(data['you']['body']['data'][0]['y'])
         
-	direction = 'right'
+    direction = 'right'
 	
     print direction
     return {
