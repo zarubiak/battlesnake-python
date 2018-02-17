@@ -61,10 +61,10 @@ def move():
         direction = 'right'
 		
     elif (snakehead_y > food_y):
-        direction = 'down'
+        direction = 'up'
 		
     elif (snakehead_y < food_y):
-         direction = 'up'
+         direction = 'down'
 	
     print direction
     return {
