@@ -48,9 +48,37 @@ def move():
     
     directions = ['up', 'down', 'left', 'right']
 	
+	for w in data['width']:
+        for h in data['height']:
+            if zad_snake['coords'][0] == [0,h]:
+		 	# Change so it wont run into itself
+                if zad_snake['coords'][1] == [1,h]:	
+                    if (r % 2) == 0:
+                        direction = 'up'
+                    else:
+                        direction = 'down'
+			
+            if (zad_snake['coords'][0] == [len(zad_snake['width'])-1, h]):
+                if (zad_snake['coords'][1] == [len(zad_snake['width'])-2, h]):
+                    if (r % 2) == 0:
+                        direction = 'up'
+                    else:
+                        direction = 'down'
+					
+            if zad_snake['coords'][0] == [w, len(zad_snake[height])-1]:
+                if zad_snake['coords'][1] == [w, len(zad_snake[height])-2]:
+                    if (r % 2) == 0:
+                        direction = 'right'
+                    else:
+                        direction = 'left'
+					
+            if zad_snake['coords'][0] == [w, 0]:
+                if zad_snake['coords'][1] == [w, 1]:
+                    if (r % 2) == 0:
+                        direction = 'right'
+                    else:
+                        direction = 'left'
 	
-	
-    direction = 'up'
     print direction
     return {
         'move': direction,
