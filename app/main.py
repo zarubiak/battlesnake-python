@@ -26,7 +26,7 @@ def start():
         bottle.request.urlparts.netloc
     )
 
-    # TODO: Do things with data
+    # TODO: Do things with datasssss
 
     return {
         'color': '#00FF00',
