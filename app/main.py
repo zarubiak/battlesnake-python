@@ -157,9 +157,9 @@ def move():
 	
 def direction_choice(priority):
     up = 1
-    down = 2
-    right = 3
-    left = 4
+    down = 1000
+    right = 1000
+    left = 1000
 	
     for i in range(0, int(len(priority)) - 1):
 	    if priority[i][0] == 'u':
