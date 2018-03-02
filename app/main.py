@@ -5,6 +5,11 @@ import random
 
 global directions
 
+global up
+global down
+global left
+global right
+
 @bottle.route('/')
 def static():
     return "the server is running"
@@ -81,25 +86,25 @@ def move():
     for c1 in list:
 	    if [snakehead_x, snakehead_y - 1] in list:
 		    list2.append([snakehead_x, snakehead_y - 1])
-		    priority.append(['d', 100])
+		    priority.append(['d', 1000])
 		    break
 			
     for c2 in list:
 	    if [snakehead_x - 1, snakehead_y] in list:
 		    list2.append([snakehead_x - 1, snakehead_y])
-		    priority.append(['l', 100])
+		    priority.append(['l', 1000])
 		    break
 
     for c3 in list:
 	    if [snakehead_x + 1, snakehead_y] in list:
 		    list2.append([snakehead_x + 1, snakehead_y])
-		    priority.append(['r', 100])
+		    priority.append(['r', 1000])
 		    break
 			
     for c4 in list:
 	    if [snakehead_x, snakehead_y + 1] in list:
 		    list2.append([snakehead_x, snakehead_y + 1])
-		    priority.append(['u', 100])
+		    priority.append(['u', 1000])
 		    break
 			
    
@@ -147,8 +152,37 @@ def move():
 		#priority.append(['l', 30])
 		#priority.append(['r', 30])
     
-    direction = direction_choice(priority)
-    print list2
+    u = 2
+    d = 2
+    l = 2
+    r = 2
+	
+	
+    for i in range(0, int(len(priority)) - 1):
+	    if priority[i][0] == 'u':
+		    u += int(priority[i][1])
+		
+	    elif priority[i][0] == 'd':
+		    d += int(priority[i][1])
+			
+	    elif priority[i][0] == 'right':
+		    r += int(priority[i][1])
+			
+	    else:
+		    l += int(priority[i][1])
+    
+    if(d > u and d > r and d > l):
+	    direction = directions[1]
+    elif(u > d and u > r and u > l):
+	    direction = directions[0]
+    elif(r > u and r > d and r > l):
+	    direction = directions[3]
+    elif(l > u and l > r and l > d):
+	    direction = directions[2]
+    else:
+	    direction = random.choice(directions)
+	
+    print priority
     print direction
     return {
         'move': direction,
@@ -157,9 +191,9 @@ def move():
 	
 def direction_choice(priority):
     up = 1
-    down = 1000
-    right = 1000
-    left = 1000
+    down = 1
+    left = 1
+    right = 1
 	
     for i in range(0, int(len(priority)) - 1):
 	    if priority[i][0] == 'u':
@@ -173,24 +207,7 @@ def direction_choice(priority):
 			
 	    else:
 		    left += int(priority[i][1])
-			
-    print up
-    print down
-    print right
-    print left
 	
-    if (up < left and up < right and up < down):
-	    return 'up'
-	
-    elif (down < left and down < right and down < up):
-	    return 'down'
-		
-    elif (left < down and left < right and left < up):
-	    return 'left'
-		
-    else:
-	    return 'right'
-		
     
 
 # Expose WSGI app (so gunicorn can find it)
