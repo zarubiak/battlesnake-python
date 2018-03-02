@@ -51,6 +51,8 @@ def move():
 
     # TODO: Do things with data
 	# Calculate the average position of enemy snakes and move away if smaller
+	# Distance X*2 + distance y*2 from food 
+	# Snakehead position within 2 spots, that takes priority
     
     directions = ['up', 'down', 'left', 'right']
 	
@@ -68,6 +70,7 @@ def move():
     list2 = []
     priority = []
 	
+	# Locate closest food
 	# Loop that finds all the food available
     for f in data['food']['data']:
 	    f_x = f['x']
@@ -86,25 +89,25 @@ def move():
     for c1 in list:
 	    if [snakehead_x, snakehead_y - 1] in list:
 		    list2.append([snakehead_x, snakehead_y - 1])
-		    priority.append(['d', 1000])
+		    priority.append(['d', 100])
 		    break
 			
     for c2 in list:
 	    if [snakehead_x - 1, snakehead_y] in list:
 		    list2.append([snakehead_x - 1, snakehead_y])
-		    priority.append(['l', 1000])
+		    priority.append(['l', 100])
 		    break
 
     for c3 in list:
 	    if [snakehead_x + 1, snakehead_y] in list:
 		    list2.append([snakehead_x + 1, snakehead_y])
-		    priority.append(['r', 1000])
+		    priority.append(['r', 100])
 		    break
 			
     for c4 in list:
 	    if [snakehead_x, snakehead_y + 1] in list:
 		    list2.append([snakehead_x, snakehead_y + 1])
-		    priority.append(['u', 1000])
+		    priority.append(['u', 100])
 		    break
 			
    
@@ -115,18 +118,18 @@ def move():
     for j in range(0, width-1):
 	    if [j, 0] in list:
 		    # Direction is not down
-		    priority.append(['d', 100])
+		    priority.append(['d', 1000])
 	    elif [j, height - 1] in list:
 			# Direction is not up
-		    priority.append(['u', 100])
+		    priority.append(['u', 1000])
 			
     for k in range(0, height-1):
 	    if [0, k] in list:
 		    # Direction is not left
-		    priority.append(['l', 100])
+		    priority.append(['l', 1000])
 	    elif [width - 1, k] in list:
 			# Direction is not right
-	        priority.append(['r', 100])
+	        priority.append(['r', 1000])
 			
     if (snakehead_x > food_x):
         # direction = 'left';
@@ -165,20 +168,21 @@ def move():
 	    elif priority[i][0] == 'd':
 		    d += int(priority[i][1])
 			
-	    elif priority[i][0] == 'right':
+	    elif priority[i][0] == 'r':
 		    r += int(priority[i][1])
 			
 	    else:
 		    l += int(priority[i][1])
     
+	# Check for lowest value in list, improve
     if(d > u and d > r and d > l):
-	    direction = directions[1]
-    elif(u > d and u > r and u > l):
-	    direction = directions[0]
-    elif(r > u and r > d and r > l):
 	    direction = directions[3]
-    elif(l > u and l > r and l > d):
+    elif(u > d and u > r and u > l):
 	    direction = directions[2]
+    elif(r > u and r > d and r > l):
+	    direction = directions[1]
+    elif(l > u and l > r and l > d):
+	    direction = directions[0]
     else:
 	    direction = random.choice(directions)
 	
