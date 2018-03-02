@@ -89,27 +89,27 @@ def move():
     for c1 in list:
 	    if [snakehead_x, snakehead_y - 1] in list:
 		    list2.append([snakehead_x, snakehead_y - 1])
-		    priority.append(['d', 100])
+		    priority.append(['u', 1000])
 		    break
 			
     for c2 in list:
 	    if [snakehead_x - 1, snakehead_y] in list:
 		    list2.append([snakehead_x - 1, snakehead_y])
-		    priority.append(['l', 100])
+		    priority.append(['r', 1000])
 		    break
 
     for c3 in list:
 	    if [snakehead_x + 1, snakehead_y] in list:
 		    list2.append([snakehead_x + 1, snakehead_y])
-		    priority.append(['r', 100])
+		    priority.append(['l', 1000])
 		    break
 			
     for c4 in list:
 	    if [snakehead_x, snakehead_y + 1] in list:
 		    list2.append([snakehead_x, snakehead_y + 1])
-		    priority.append(['u', 100])
+		    priority.append(['d', 1000])
 		    break
-			
+		
    
     width = data.get('width')
     height = data.get('height')
@@ -118,50 +118,64 @@ def move():
     for j in range(0, width-1):
 	    if [j, 0] in list:
 		    # Direction is not down
-		    priority.append(['d', 1000])
+		    priority.append(['u', 5000])
 	    elif [j, height - 1] in list:
 			# Direction is not up
-		    priority.append(['u', 1000])
+		    priority.append(['d', 5000])
 			
     for k in range(0, height-1):
 	    if [0, k] in list:
 		    # Direction is not left
-		    priority.append(['l', 1000])
+		    priority.append(['l', 5000])
 	    elif [width - 1, k] in list:
 			# Direction is not right
-	        priority.append(['r', 1000])
+	        priority.append(['r', 5000])
 			
-    if (snakehead_x > food_x):
+    if (snakehead_x > food_x and snakehead_y > food_y):
         # direction = 'left';
 		#priority.append(['u', 30])
 		#priority.append(['d', 30])
-		priority.append(['u', 30])
+		priority.append(['u', 500])
+		priority.append(['r', 500])
 		
-    elif (snakehead_x < food_x):
+    elif (snakehead_x < food_x and snakehead_y > food_y):
         # direction = 'right'
 		#priority.append(['u', 30])
 		#priority.append(['d', 30])
-		priority.append(['d', 30])
+		priority.append(['l', 500])
+		priority.append(['u', 500])
 		
-    elif (snakehead_y > food_y):
+    elif (snakehead_x > food_x and snakehead_y < food_y):
         # direction = 'up'
 		#priority.append(['l', 30])
-		priority.append(['r', 30])
+		priority.append(['r', 500])
+		priority.append(['d', 500])
 		#priority.append(['r', 30])
 		
-    elif (snakehead_y < food_y):
+    else:
         # direction = 'down'
-		priority.append(['l', 30])
+		priority.append(['l', 500])
+		priority.append(['d', 500])
 		#priority.append(['l', 30])
 		#priority.append(['r', 30])
+		
+	# Put it into a list groups of 2
+	# list = []
+	# list.append(['l', 4500])
+	# maxval = 0
+	# for i in list[i][1]] 
+	# if maxval 
     
-    u = 2
+    
+    u = 1
     d = 2
-    l = 2
-    r = 2
+    l = 3
+    r = 4
+    final_choice = []
+    mini = 1000000
+    dir = []
 	
-	
-    for i in range(0, int(len(priority)) - 1):
+    for i in range(0, int(len(priority))):
 	    if priority[i][0] == 'u':
 		    u += int(priority[i][1])
 		
@@ -173,8 +187,31 @@ def move():
 			
 	    else:
 		    l += int(priority[i][1])
+			
+    final_choice.append(['u', u])
+    final_choice.append(['d', d])
+    final_choice.append(['r', r])
+    final_choice.append(['l', l])
+	
+    for fc in range(0, len(final_choice)):
+	    if final_choice[fc][1] <= mini:
+		    mini = int(final_choice[fc][1])
+		    dir = final_choice[fc][0]
+			
+    if dir == 'u':
+	    direction = directions[0]
+    elif dir == 'd':
+	    direction = directions[1]
+    elif dir == 'l':
+	    direction = directions[2]
+    elif dir == 'r':
+	    direction = directions[3]
+    else:
+	    direction = random.choice(directions)
     
+	# 
 	# Check for lowest value in list, improve
+    '''
     if(d > u and d > r and d > l):
 	    direction = directions[3]
     elif(u > d and u > r and u > l):
@@ -184,8 +221,13 @@ def move():
     elif(l > u and l > r and l > d):
 	    direction = directions[0]
     else:
-	    direction = random.choice(directions)
+	    direction = random.choice(directions)	
+    '''
 	
+    print "u:", u
+    print "d:", d
+    print "l:", l
+    print "r:", r
     print priority
     print direction
     return {
