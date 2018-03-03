@@ -38,7 +38,7 @@ def start():
         'taunt': '{} ({}x{})'.format(game_id, board_width, board_height),
         'head_url': head_url,
         'name': 'battlesnake-python',
-		'head_type': 'shades',
+		'head_type': 'pixel',
 		'tail_type': 'curled',
 		'secondary_color': '#FF69B4'
     }
@@ -126,30 +126,30 @@ def move():
     for j in range(0, width):
 		if [j, 0] in list:
 		    #Direction is not down
-		    priority.append(['d', 9000]) 
+		    priority.append(['u', 900]) 
 		    #priority.append(['l', 9000])
 		    #priority.append(['r', 9000])
 		    #break
 		    #if [j, height - 2] in list:
 		        #priority.append(['d', 400])
 		    if snakehead_x == width - 1:
-		    	    priority.append(['d', 12])
+		    	    priority.append(['u', 200000])
 				
 		elif [j, height - 1] in list:
 		    # Direction is not up
-		    priority.append(['u', 9000])
+		    priority.append(['d', 900])
 		    #priority.append(['l', 9000])
 		    #priority.append(['r', 9000])
 		    #if [j, 1] in list:
 		        #priority.append(['u', 400])
 		    if snakehead_x == width - 1:
-		    	    priority.append(['u', 12])
+		    	    priority.append(['d', 200000])
 				
     for k in range(0, height):
 		if [0, k] in list:
-		    priority.append(['l', 9000])
+		    priority.append(['l', 900])
 		    if snakehead_x == 0:
-		    	    priority.append(['l', 12])
+		    	    priority.append(['l', 200000])
 		    	    
 		    #priority.append(['d', 9000])
 		    #priority.append(['u', 9000])
@@ -158,14 +158,14 @@ def move():
 		        #priority.append(['d', 400])
 				
 		elif [width - 1, k] in list:
-		    priority.append(['r', 9000])
+		    priority.append(['r', 900])
 		    #priority.append(['u', 9000])
 		    #priority.append(['d', 9000])
 		    # Direction is not right
 		    #if [j, 1] in list:
 		        #priority.append(['u', 400])
 		    if snakehead_x == width - 1:
-		    	    priority.append(['r', 12])
+		    	    priority.append(['r', 200000])
 		    	    
 			
     if (snakehead_x >= food_x and snakehead_y >= food_y):
