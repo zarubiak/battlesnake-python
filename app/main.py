@@ -151,7 +151,7 @@ def move():
 		if [0, k] in list:
 		    priority.append(['l', 900])
 		    if snakehead_x == 0:
-		    	    priority.append(['l', 500000])
+		    	    priority.append(['r', 500000])
 		    	    
 		    #priority.append(['d', 9000])
 		    #priority.append(['u', 9000])
@@ -167,7 +167,7 @@ def move():
 		    #if [j, 1] in list:
 		        #priority.append(['u', 400])
 		    if snakehead_x == width - 1:
-		    	    priority.append(['r', 500000])
+		    	    priority.append(['l', 500000])
 	
     if food_timer <= 40:
     	    if food_x + 1 == snakehead_x and food_y == snakehead_y:
@@ -303,7 +303,7 @@ def move():
 	    
     if snakehead_x == width - 1 and snakehead_y == height - 1 and [width - 1, height - 2] in list:
 	    priority.append(['r', 210000])
-	    priority.append(['u', 210000])
+	    priority.append(['l', 210000])
 	    priority.append(['d', 210000])
 	    # Last one is debatable
 	
