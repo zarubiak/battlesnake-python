@@ -134,8 +134,8 @@ def move():
 		    #break
 		    #if [j, height - 2] in list:
 		        #priority.append(['d', 400])
-		    if snakehead_x == width - 1:
-		    	    priority.append(['d', 200000])
+		    #if snakehead_x == width - 1:
+		    #	    priority.append(['d', 200000])
 				
 		elif [j, height - 1] in list:
 		    # Direction is not up
