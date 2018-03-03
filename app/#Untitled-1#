@@ -1,0 +1,11 @@
+TEST 1: Died turning up because tail was touching right wall and head touching left. 886
+
+TEST 2: Died Trying to get food. Missed food turning because parts of tail touched wall. 346
+
+TEST 3: Died because tail touching wall is influencing direction. 882
+
+TEST 4: Died trying to get food in upper corner. 483
+
+TEST 5: Died running into ourself. 627
+
+TEST 6: Died because tail touching wall influences decision.
