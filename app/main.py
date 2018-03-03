@@ -169,7 +169,7 @@ def move():
 		    if snakehead_x == width - 1:
 		    	    priority.append(['r', 200000])
 	
-    if food_timer <= 40:
+    if food_timer <= 50:
     	    if food_x + 1 == snakehead_x and food_y == snakehead_y:
 		    priority.append(['r', 500])
 		    priority.append(['d', 500])
@@ -191,70 +191,70 @@ def move():
 		    priority.append(['u', 500])
 		
 	    else:
-		    priority.append(['r', 7])
-		    priority.append(['l', 7])
-		    priority.append(['u', 7])
-		    priority.append(['d', 7])
+		    priority.append(['r', 1])
+		    priority.append(['l', 1])
+		    priority.append(['u', 1])
+		    priority.append(['d', 1])
         
 			
     if (snakehead_x >= food_x and snakehead_y >= food_y):
         # direction = 'left';
 	#priority.append(['u', 30])
 	#priority.append(['d', 30])
-	priority.append(['d', 350])
-        priority.append(['u', 350])
-        priority.append(['r', 350])
+	priority.append(['d', 35])
+        priority.append(['u', 35])
+        priority.append(['r', 35])
         
     elif (snakehead_x <= food_x and snakehead_y >= food_y):
         # direction = 'right'
         #priority.append(['u', 30])
         #priority.append(['d', 30])
-        priority.append(['d', 350])
-        priority.append(['l', 350])
-        priority.append(['u', 350])
+        priority.append(['d', 35])
+        priority.append(['l', 35])
+        priority.append(['u', 35])
 		
     elif (snakehead_x >= food_x and snakehead_y <= food_y):
         # direction = 'up'
         #priority.append(['l', 30])
-        priority.append(['r', 350])
-	priority.append(['l', 350])
-	priority.append(['u', 350])
+        priority.append(['r', 35])
+	priority.append(['l', 35])
+	priority.append(['u', 35])
 		
     else:
         # direction = 'down'
-        priority.append(['l', 350])
-        priority.append(['r', 350])
-        priority.append(['d', 350])
+        priority.append(['l', 35])
+        priority.append(['r', 35])
+        priority.append(['d', 35])
 		#priority.append(['l', 30])
 		#priority.append(['r', 30])
 	
 
  
     if food_x + 1 == snakehead_x and food_y == snakehead_y:
-    	    priority.append(['r', 200])
-	    priority.append(['d', 200])
-	    priority.append(['u', 200])
+    	    priority.append(['r', 20])
+	    priority.append(['d', 20])
+	    priority.append(['u', 20])
 		
     elif food_x - 1 == snakehead_x and food_y == snakehead_y:
-	    priority.append(['l', 200])
-	    priority.append(['d', 200])
-	    priority.append(['u', 200])
+	    priority.append(['l', 20])
+	    priority.append(['d', 20])
+	    priority.append(['u', 20])
 		
     elif food_y + 1 == snakehead_y and food_x == snakehead_x:
-	    priority.append(['r', 200])
-	    priority.append(['l', 200])
-	    priority.append(['d', 200])
+	    priority.append(['r', 20])
+	    priority.append(['l', 20])
+	    priority.append(['d', 20])
 		
     elif food_y - 1 == snakehead_y and food_x == snakehead_x:
-	    priority.append(['r', 200])
-	    priority.append(['l', 200])
-	    priority.append(['u', 200])
+	    priority.append(['r', 20])
+	    priority.append(['l', 20])
+	    priority.append(['u', 20])
         
     else:
-	    priority.append(['r', 7])
-	    priority.append(['l', 7])
-	    priority.append(['u', 7])
-	    priority.append(['d', 7])
+	    priority.append(['r', 1])
+	    priority.append(['l', 1])
+	    priority.append(['u', 1])
+	    priority.append(['d', 1])
 	
 	# If snake head touching bottom and tail is touching the top
 	# direction = left or right
