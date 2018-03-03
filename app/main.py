@@ -99,25 +99,25 @@ def move():
     for c1 in list:
 	    if [snakehead_x, snakehead_y - 1] in list:
 		    list2.append(['down'])
-		    priority.append(['u', 100000])
+		    priority.append(['u', 50000])
 		    break
 			
     for c2 in list:
 	    if [snakehead_x - 1, snakehead_y] in list:
 		    list2.append(['right'])
-		    priority.append(['l', 100000])
+		    priority.append(['l', 50000])
 		    break
 
     for c3 in list:
 	    if [snakehead_x + 1, snakehead_y] in list:
 		    list2.append(['left'])
-		    priority.append(['r', 100000])
+		    priority.append(['r', 50000])
 		    break
 			
     for c4 in list:
 	    if [snakehead_x, snakehead_y + 1] in list:
 		    list2.append(['up'])
-		    priority.append(['d', 100000])
+		    priority.append(['d', 50000])
 		    break
 		
    
