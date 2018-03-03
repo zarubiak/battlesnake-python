@@ -228,33 +228,33 @@ def move():
 	    priority.append(['d', 7])
 	    
     if snakehead_x == 0 and snakehead_y == 0 and [1, 0] in list:
-	    priority.append(['r', 190000])
-	    priority.append(['l', 190000])
-	    priority.append(['u', 190000])
+	    priority.append(['r', 290000])
+	    priority.append(['l', 290000])
+	    priority.append(['u', 290000])
 	    # Last one is debatable
 
     if snakehead_x == 0 and snakehead_y == 0 and [0, 1] in list:
-	    priority.append(['u', 160000])
-	    priority.append(['l', 160000])
-	    priority.append(['d', 160000])
+	    priority.append(['u', 260000])
+	    priority.append(['l', 260000])
+	    priority.append(['d', 260000])
 	    # Last one is debatable
 	   
     if snakehead_x == width - 1 and snakehead_y == 0 and [width - 2, 0] in list:
-	    priority.append(['r', 170000])
-	    priority.append(['l', 170000])
-	    priority.append(['u', 170000])
+	    priority.append(['r', 270000])
+	    priority.append(['l', 270000])
+	    priority.append(['u', 270000])
 	    # Last one is debatable
 	 
     if snakehead_x == width - 1 and snakehead_y == 0 and [width - 1, 1] in list:
-	    priority.append(['r', 100000])
-	    priority.append(['u', 100000])
-	    priority.append(['d', 100000])
+	    priority.append(['r', 300000])
+	    priority.append(['u', 300000])
+	    priority.append(['d', 300000])
 	    # Last one is debatable
 	    
     if snakehead_x == width - 1 and snakehead_y == height - 1 and [width - 1, height - 2] in list:
-	    priority.append(['r', 110000])
-	    priority.append(['u', 110000])
-	    priority.append(['d', 110000])
+	    priority.append(['r', 210000])
+	    priority.append(['u', 210000])
+	    priority.append(['d', 210000])
 	    # Last one is debatable
 	
     '''
