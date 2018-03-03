@@ -99,25 +99,25 @@ def move():
     for c1 in list:
 	    if [snakehead_x, snakehead_y - 1] in list:
 		    list2.append(['down'])
-		    priority.append(['u', 10000])
+		    priority.append(['u', 100000])
 		    break
 			
     for c2 in list:
 	    if [snakehead_x - 1, snakehead_y] in list:
 		    list2.append(['right'])
-		    priority.append(['l', 10000])
+		    priority.append(['l', 100000])
 		    break
 
     for c3 in list:
 	    if [snakehead_x + 1, snakehead_y] in list:
 		    list2.append(['left'])
-		    priority.append(['r', 10000])
+		    priority.append(['r', 100000])
 		    break
 			
     for c4 in list:
 	    if [snakehead_x, snakehead_y + 1] in list:
 		    list2.append(['up'])
-		    priority.append(['d', 10000])
+		    priority.append(['d', 100000])
 		    break
 		
    
@@ -167,7 +167,7 @@ def move():
 		    #if [j, 1] in list:
 		        #priority.append(['u', 400])
 		    if snakehead_x == width - 1:
-		    	    priority.append(['r', 200000])
+		    	    priority.append(['r', 1000])
 	
     if food_timer <= 50:
     	    if food_x + 1 == snakehead_x and food_y == snakehead_y:
