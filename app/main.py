@@ -68,6 +68,8 @@ def move():
     list = []
     list2 = []
     priority = []
+    
+    food_timer = int(data['you']['health'])
 	
 	# Locate closest food
 	# Loop that finds all the food available
@@ -166,7 +168,34 @@ def move():
 		        #priority.append(['u', 400])
 		    if snakehead_x == width - 1:
 		    	    priority.append(['r', 200000])
-		    	    
+	
+    if food_timer <= 40:
+    	    if food_x + 1 == snakehead_x and food_y == snakehead_y:
+		    priority.append(['r', 200])
+		    priority.append(['d', 200])
+		    priority.append(['u', 200])
+			
+	    elif food_x - 1 == snakehead_x and food_y == snakehead_y:
+		    priority.append(['l', 200])
+		    priority.append(['d', 200])
+		    priority.append(['u', 200])
+			
+	    elif food_y + 1 == snakehead_y and food_x == snakehead_x:
+		    priority.append(['r', 200])
+		    priority.append(['l', 200])
+		    priority.append(['d', 200])
+			
+	    elif food_y - 1 == snakehead_y and food_x == snakehead_x:
+		    priority.append(['r', 200])
+		    priority.append(['l', 200])
+		    priority.append(['u', 200])
+		
+	    else:
+		    priority.append(['r', 7])
+		    priority.append(['l', 7])
+		    priority.append(['u', 7])
+		    priority.append(['d', 7])
+        
 			
     if (snakehead_x >= food_x and snakehead_y >= food_y):
         # direction = 'left';
