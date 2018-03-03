@@ -275,6 +275,8 @@ def move():
 	
 	# If food timer < 30, food priority = high
 	
+	# If direction is going to run ya into a wall
+	
     if snakehead_x == 0 and snakehead_y == 0 and [1, 0] in list:
 	    priority.append(['r', 290000])
 	    priority.append(['l', 290000])
