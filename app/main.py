@@ -157,7 +157,7 @@ def move():
         #priority.append(['u', 9000])
         # Direction is not left
         if [j, 1] in list:
-            priority.append(['d', 10000])
+          priority.append(['d', 10000])
         
       elif [width - 1, k] in list:
         priority.append(['r', 900])
@@ -165,7 +165,7 @@ def move():
         #priority.append(['d', 9000])
         # Direction is not right
         if [j, 1] in list:
-            priority.append(['u', 10000])
+          priority.append(['u', 10000])
         #if snakehead_x == width - 1:
         #     priority.append(['r', 1000])
   
@@ -203,9 +203,9 @@ def move():
       priority.append(['r', 35])
         
     elif (snakehead_x <= food_x and snakehead_y >= food_y):
-        priority.append(['d', 35])
-        priority.append(['l', 35])
-        priority.append(['u', 35])
+      priority.append(['d', 35])
+      priority.append(['l', 35])
+      priority.append(['u', 35])
     
     elif (snakehead_x >= food_x and snakehead_y <= food_y):
       priority.append(['r', 35])
@@ -213,9 +213,9 @@ def move():
       priority.append(['u', 35])
     
     else:
-        priority.append(['l', 35])
-        priority.append(['r', 35])
-        priority.append(['d', 35])
+      priority.append(['l', 35])
+      priority.append(['r', 35])
+      priority.append(['d', 35])
  
     if food_x + 1 == snakehead_x and food_y == snakehead_y:
       priority.append(['r', 20])
