@@ -297,13 +297,13 @@ def move():
 	 
     if snakehead_x == width - 1 and snakehead_y == 0 and [width - 1, 1] in list:
 	    priority.append(['r', 300000])
-	    priority.append(['u', 300000])
+	    priority.append(['l', 300000])
 	    priority.append(['d', 300000])
 	    # Last one is debatable
 	    
     if snakehead_x == width - 1 and snakehead_y == height - 1 and [width - 1, height - 2] in list:
 	    priority.append(['r', 210000])
-	    priority.append(['l', 210000])
+	    priority.append(['u', 210000])
 	    priority.append(['d', 210000])
 	    # Last one is debatable
 	
