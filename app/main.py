@@ -198,37 +198,24 @@ def move():
         
 			
     if (snakehead_x >= food_x and snakehead_y >= food_y):
-        # direction = 'left';
-	#priority.append(['u', 30])
-	#priority.append(['d', 30])
 	priority.append(['d', 35])
         priority.append(['u', 35])
         priority.append(['r', 35])
         
     elif (snakehead_x <= food_x and snakehead_y >= food_y):
-        # direction = 'right'
-        #priority.append(['u', 30])
-        #priority.append(['d', 30])
         priority.append(['d', 35])
         priority.append(['l', 35])
         priority.append(['u', 35])
 		
     elif (snakehead_x >= food_x and snakehead_y <= food_y):
-        # direction = 'up'
-        #priority.append(['l', 30])
         priority.append(['r', 35])
 	priority.append(['l', 35])
 	priority.append(['u', 35])
 		
     else:
-        # direction = 'down'
         priority.append(['l', 35])
         priority.append(['r', 35])
         priority.append(['d', 35])
-		#priority.append(['l', 30])
-		#priority.append(['r', 30])
-	
-
  
     if food_x + 1 == snakehead_x and food_y == snakehead_y:
     	    priority.append(['r', 20])
@@ -297,53 +284,32 @@ def move():
 	 
     if snakehead_x == width - 1 and snakehead_y == 0 and [width - 1, 1] in list:
 	    priority.append(['r', 300000])
-	    priority.append(['l', 300000])
+	    priority.append(['u', 300000])
 	    priority.append(['d', 300000])
 	    # Last one is debatable
 	    
     if snakehead_x == width - 1 and snakehead_y == height - 1 and [width - 1, height - 2] in list:
 	    priority.append(['r', 210000])
-	    priority.append(['l', 210000])
+	    priority.append(['u', 210000])
 	    priority.append(['d', 210000])
 	    # Last one is debatable
-	
-    '''
-    if snakehead_x == width - 1 and snakehead_y == height - 2 and [width - 2, height - 2] in list:
-	    priority.append(['r', 130000])
-	    priority.append(['l', 130000])
-	    priority.append(['d', 130000])
-	    # Last one is debatable '''
-    
-    ''' 
-    if snakehead_x == width - 1 and snakehead_y == height - 1 and [width - 2, height - 1] in list:
-	    priority.append(['r', 130000])
-	    priority.append(['l', 130000])
-	    priority.append(['d', 130000])
-	    # Last one is debatable '''
-  
     
     if snakehead_x == width - 1 and snakehead_y == height - 1 and [width - 2, height - 1] in list:
-	    priority.append(['r', 130000])
-	    priority.append(['l', 130000])
-	    priority.append(['d', 130000])
+	    priority.append(['r', 230000])
+	    priority.append(['l', 230000])
+	    priority.append(['d', 230000])
 	    # Last one is debatable '''
 	 
     if snakehead_x == 0 and snakehead_y == height - 1 and [0, height - 2] in list:
-	    priority.append(['d', 120000])
-	    priority.append(['l', 120000])
-	    priority.append(['u', 120000])
+	    priority.append(['d', 220000])
+	    priority.append(['l', 220000])
+	    priority.append(['u', 220000])
 	    # Last one is debatable
 	    
     if snakehead_x == 0 and snakehead_y == height - 1 and [1, height - 1] in list:
-	    priority.append(['r', 150000])
-	    priority.append(['l', 150000])
-	    priority.append(['d', 150000])
-	    # Last one is debatable
-
-    if snakehead_x == 0 and snakehead_y == height - 1 and [1, height - 1] in list:
-	    priority.append(['r', 150000])
-	    priority.append(['l', 150000])
-	    priority.append(['u', 150000])
+	    priority.append(['r', 250000])
+	    priority.append(['l', 250000])
+	    priority.append(['d', 250000])
 	    # Last one is debatable
     
     u = 1
