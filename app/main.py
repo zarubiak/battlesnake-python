@@ -37,7 +37,7 @@ def start():
         'color': '#23C1EB',
         'taunt': '{} ({}x{})'.format(game_id, board_width, board_height),
         'head_url': head_url,
-        'name': 'battlesnake-python',
+        'name': 'Zad Acad Grad',
 		'head_type': 'shades',
 		'tail_type': 'curled',
 		'secondary_color': '#DDA0DD'
@@ -226,7 +226,19 @@ def move():
 	    priority.append(['l', 7])
 	    priority.append(['u', 7])
 	    priority.append(['d', 7])
-	    
+	
+	# If snake head touching bottom and tail is touching the top
+	# direction = left or right
+	
+	# If snake head touching top and tail is touching the bottom
+	# direction = left or right
+	
+	# If snake head touching left and tail touching right
+	# direction = up or down
+	
+	# If snake head touching rigth and tail touching left
+	# direction = up or down
+	
     if snakehead_x == 0 and snakehead_y == 0 and [1, 0] in list:
 	    priority.append(['r', 290000])
 	    priority.append(['l', 290000])
