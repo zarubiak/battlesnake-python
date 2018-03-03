@@ -285,14 +285,14 @@ def move():
 	    # Last one is debatable
 
     if snakehead_x == 0 and snakehead_y == height - 2 and [1, height - 2] in list:
-	    priority.append(['r', 155000])
-	    priority.append(['l', 155000])
-	    priority.append(['u', 155000])
+	    priority.append(['r', 150000])
+	    priority.append(['l', 150000])
+	    priority.append(['u', 150000])
 	    # Last one is debatable
 		    
 	    
-    # go to furthest away food each time
-    # Check to see if any snakehead_x coordinates in list, go opposite direction of x
+    # Check for food timer
+    # Check to see if any snakehead_x coordinates in list, go opposite direction of x if just one x value in there
     # Dont turn right if head x + 1, y + 1 and x, y + 1 in list
     # Dont turn left if 
     
