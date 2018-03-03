@@ -239,6 +239,8 @@ def move():
 	# If snake head touching rigth and tail touching left
 	# direction = up or down
 	
+	# If tail is touching wall and head touching other wall, direction is not out
+	
     if snakehead_x == 0 and snakehead_y == 0 and [1, 0] in list:
 	    priority.append(['r', 290000])
 	    priority.append(['l', 290000])
@@ -269,21 +271,21 @@ def move():
 	    priority.append(['d', 210000])
 	    # Last one is debatable
 	
-    '''
+    
     if snakehead_x == width - 1 and snakehead_y == height - 2 and [width - 2, height - 2] in list:
 	    priority.append(['r', 130000])
 	    priority.append(['l', 130000])
 	    priority.append(['d', 130000])
 	    # Last one is debatable '''
     
-    ''''    
+       
     if snakehead_x == width - 1 and snakehead_y == height - 2 and [width - 1, height - 3] in list:
 	    priority.append(['r', 130000])
 	    priority.append(['u', 130000])
 	    priority.append(['d', 130000])
 	    # Last one is debatable '''
+  
     
-    '''
     if snakehead_x == width - 1 and snakehead_y == height - 1 and [width - 2, height - 1] in list:
 	    priority.append(['r', 130000])
 	    priority.append(['l', 130000])
