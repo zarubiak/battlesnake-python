@@ -128,7 +128,7 @@ def move():
     for j in range(0, width):
 		if [j, 0] in list:
 		    #Direction is not down
-		    priority.append(['u', 900]) 
+		    priority.append(['u', 90000]) 
 		    #priority.append(['l', 9000])
 		    #priority.append(['r', 9000])
 		    #break
@@ -139,19 +139,19 @@ def move():
 				
 		elif [j, height - 1] in list:
 		    # Direction is not up
-		    priority.append(['d', 900])
+		    priority.append(['d', 90000])
 		    #priority.append(['l', 9000])
 		    #priority.append(['r', 9000])
 		    #if [j, 1] in list:
 		        #priority.append(['u', 400])
-		    if snakehead_x == width - 1:
-		    	    priority.append(['u', 200000])
+		    #if snakehead_x == width - 1:
+		    #	    priority.append(['u', 200000])
 				
     for k in range(0, height):
 		if [0, k] in list:
-		    priority.append(['l', 900])
-		    if snakehead_x == 0:
-		    	    priority.append(['l', 200000])
+		    priority.append(['l', 90000])
+		    #if snakehead_x == 0:
+		    #	    priority.append(['l', 200000])
 		    	    
 		    #priority.append(['d', 9000])
 		    #priority.append(['u', 9000])
@@ -160,14 +160,14 @@ def move():
 		        #priority.append(['d', 400])
 				
 		elif [width - 1, k] in list:
-		    priority.append(['r', 900])
+		    priority.append(['r', 90000])
 		    #priority.append(['u', 9000])
 		    #priority.append(['d', 9000])
 		    # Direction is not right
 		    #if [j, 1] in list:
 		        #priority.append(['u', 400])
-		    if snakehead_x == width - 1:
-		    	    priority.append(['r', 1000])
+		    #if snakehead_x == width - 1:
+		    #	    priority.append(['r', 1000])
 	
     if food_timer <= 50:
     	    if food_x + 1 == snakehead_x and food_y == snakehead_y:
