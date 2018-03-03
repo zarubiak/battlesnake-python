@@ -246,12 +246,6 @@ def move():
 	
 	# If food timer < 30, food priority = high
 	
-    if [snakehead_x + 1, snakehead_y - 2] in list and [snakehead_x - 1, snakehead_y - 1] in list and [snakehead_x, snakehead_y - 2] in list and [snakehead_x - 1, snakehead_y - 2] in list:
-	    priority.append(['u', 261000])
-	    priority.append(['l', 261000])
-	    priority.append(['d', 261000])
-	    # Last one is debatable
-	
     if snakehead_x == 0 and snakehead_y == 0 and [1, 0] in list:
 	    priority.append(['r', 290000])
 	    priority.append(['l', 290000])
