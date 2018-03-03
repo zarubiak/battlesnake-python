@@ -167,7 +167,7 @@ def move():
 		    #if [j, 1] in list:
 		        #priority.append(['u', 400])
 		    if snakehead_x == width - 1:
-		    	    priority.append(['r', 500000])
+		    	    priority.append(['r', 200000])
 	
     if food_timer <= 40:
     	    if food_x + 1 == snakehead_x and food_y == snakehead_y:
