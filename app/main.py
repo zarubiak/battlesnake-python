@@ -99,25 +99,25 @@ def move():
     for c1 in list:
 	    if [snakehead_x, snakehead_y - 1] in list:
 		    list2.append(['down'])
-		    priority.append(['u', 50000])
+		    priority.append(['u', 500])
 		    break
 			
     for c2 in list:
 	    if [snakehead_x - 1, snakehead_y] in list:
 		    list2.append(['right'])
-		    priority.append(['l', 50000])
+		    priority.append(['l', 500])
 		    break
 
     for c3 in list:
 	    if [snakehead_x + 1, snakehead_y] in list:
 		    list2.append(['left'])
-		    priority.append(['r', 50000])
+		    priority.append(['r', 500])
 		    break
 			
     for c4 in list:
 	    if [snakehead_x, snakehead_y + 1] in list:
 		    list2.append(['up'])
-		    priority.append(['d', 50000])
+		    priority.append(['d', 500])
 		    break
 		
    
@@ -128,32 +128,32 @@ def move():
     for j in range(0, width):
 		if [j, 0] in list:
 		    #Direction is not down
-		    priority.append(['u', 900]) 
+		    priority.append(['u', 90]) 
 		    #priority.append(['l', 9000])
 		    #priority.append(['r', 9000])
 		    #break
 		    #if [j, height - 2] in list:
 		        #priority.append(['d', 400])
 		    if snakehead_x == width - 1:
-		   	    priority.append(['d', 300000])
-		   	    priority.append(['r', 300000])
-		            priority.append(['l', 300000])
+		   	    priority.append(['d', 3000])
+		   	    priority.append(['r', 3000])
+		            priority.append(['l', 3000])
 				
 		elif [j, height - 1] in list:
 		    # Direction is not up
-		    priority.append(['d', 900])
+		    priority.append(['d', 90])
 		    #priority.append(['l', 9000])
 		    #priority.append(['r', 9000])
 		    #if [j, 1] in list:
 		        #priority.append(['u', 400])
 		    if snakehead_x == width - 1:
-		    	    priority.append(['u', 300000])
-		    	    priority.append(['l', 300000])
-		    	    priority.append(['r', 300000])
+		    	    priority.append(['u', 3000])
+		    	    priority.append(['l', 3000])
+		    	    priority.append(['r', 3000])
 				
     for k in range(0, height):
 		if [0, k] in list:
-		    priority.append(['l', 900])
+		    priority.append(['l', 90])
 		    #if snakehead_x == 0:
 		    #	    priority.append(['l', 200000])
 		    	    
@@ -161,42 +161,42 @@ def move():
 		    #priority.append(['u', 9000])
 		    # Direction is not left
 		    if [j, 1] in list:
-		        priority.append(['r', 300000])
-		        priority.append(['d', 300000])
-		        priority.append(['u', 300000])
+		        priority.append(['r', 3000])
+		        priority.append(['d', 3000])
+		        priority.append(['u', 3000])
 				
 		elif [width - 1, k] in list:
-		    priority.append(['r', 900])
+		    priority.append(['r', 90])
 		    #priority.append(['u', 9000])
 		    #priority.append(['d', 9000])
 		    # Direction is not right
 		    if [j, 1] in list:
-		        priority.append(['l', 300000])
-		        priority.append(['d', 300000])
-		        priority.append(['u', 300000])
+		        priority.append(['l', 3000])
+		        priority.append(['d', 3000])
+		        priority.append(['u', 3000])
 		    #if snakehead_x == width - 1:
 		    #	    priority.append(['r', 1000])
 	
     if food_timer <= 50:
     	    if food_x + 1 == snakehead_x and food_y == snakehead_y:
-		    priority.append(['r', 50000])
-		    priority.append(['d', 50000])
-		    priority.append(['u', 50000])
+		    priority.append(['r', 500])
+		    priority.append(['d', 500])
+		    priority.append(['u', 500])
 			
 	    elif food_x - 1 == snakehead_x and food_y == snakehead_y:
-		    priority.append(['l', 50000])
-		    priority.append(['d', 50000])
-		    priority.append(['u', 50000])
+		    priority.append(['l', 500])
+		    priority.append(['d', 500])
+		    priority.append(['u', 500])
 			
 	    elif food_y + 1 == snakehead_y and food_x == snakehead_x:
-		    priority.append(['r', 50000])
-		    priority.append(['l', 50000])
-		    priority.append(['d', 50000])
+		    priority.append(['r', 500])
+		    priority.append(['l', 500])
+		    priority.append(['d', 500])
 			
 	    elif food_y - 1 == snakehead_y and food_x == snakehead_x:
-		    priority.append(['r', 50000])
-		    priority.append(['l', 50000])
-		    priority.append(['u', 50000])
+		    priority.append(['r', 500])
+		    priority.append(['l', 500])
+		    priority.append(['u', 500])
 		
 	    else:
 		    priority.append(['r', 1])
@@ -273,51 +273,51 @@ def move():
 	# If direction is going to run ya into a wall
 	
     if snakehead_x == 0 and snakehead_y == 0 and [1, 0] in list:
-	    priority.append(['r', 290000])
-	    priority.append(['l', 290000])
-	    priority.append(['u', 290000])
+	    priority.append(['r', 2900])
+	    priority.append(['l', 2900])
+	    priority.append(['u', 2900])
 	    # Last one is debatable
 
     if snakehead_x == 0 and snakehead_y == 0 and [0, 1] in list:
-	    priority.append(['u', 260000])
-	    priority.append(['l', 260000])
-	    priority.append(['d', 260000])
+	    priority.append(['u', 2600])
+	    priority.append(['l', 2600])
+	    priority.append(['d', 2600])
 	    # Last one is debatable
 	   
     if snakehead_x == width - 1 and snakehead_y == 0 and [width - 2, 0] in list:
-	    priority.append(['r', 270000])
-	    priority.append(['l', 270000])
-	    priority.append(['u', 270000])
+	    priority.append(['r', 2700])
+	    priority.append(['l', 2700])
+	    priority.append(['u', 2700])
 	    # Last one is debatable
 	 
     if snakehead_x == width - 1 and snakehead_y == 0 and [width - 1, 1] in list:
-	    priority.append(['r', 300000])
-	    priority.append(['u', 300000])
-	    priority.append(['d', 300000])
+	    priority.append(['r', 3000])
+	    priority.append(['u', 3000])
+	    priority.append(['d', 3000])
 	    # Last one is debatable
 	    
     if snakehead_x == width - 1 and snakehead_y == height - 1 and [width - 1, height - 2] in list:
-	    priority.append(['r', 210000])
-	    priority.append(['u', 210000])
-	    priority.append(['d', 210000])
+	    priority.append(['r', 2100])
+	    priority.append(['u', 2100])
+	    priority.append(['d', 2100])
 	    # Last one is debatable
     
     if snakehead_x == width - 1 and snakehead_y == height - 1 and [width - 2, height - 1] in list:
-	    priority.append(['r', 230000])
-	    priority.append(['l', 530000])
-	    priority.append(['d', 230000])
+	    priority.append(['r', 2300])
+	    priority.append(['l', 2300])
+	    priority.append(['d', 2300])
 	    # Last one is debatable '''
 	 
     if snakehead_x == 0 and snakehead_y == height - 1 and [0, height - 2] in list:
-	    priority.append(['d', 220000])
-	    priority.append(['l', 220000])
-	    priority.append(['u', 220000])
+	    priority.append(['d', 2200])
+	    priority.append(['l', 2200])
+	    priority.append(['u', 2200])
 	    # Last one is debatable
 	    
     if snakehead_x == 0 and snakehead_y == height - 1 and [1, height - 1] in list:
-	    priority.append(['r', 250000])
-	    priority.append(['l', 250000])
-	    priority.append(['d', 250000])
+	    priority.append(['r', 2500])
+	    priority.append(['l', 2500])
+	    priority.append(['d', 2500])
 	    # Last one is debatable
     
     u = 1
