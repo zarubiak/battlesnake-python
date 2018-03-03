@@ -39,7 +39,7 @@ def start():
         'taunt': '{} ({}x{})'.format(game_id, board_width, board_height),
         'head_url': head_url,
         'name': 'battlesnake-python',
-		'head_type': 'shades',
+		'head_type': 'pixel',
 		'tail_type': 'curled',
 		'secondary_color': '#FF69B4'
     }
@@ -85,31 +85,38 @@ def move():
         xcoor = item['x']
         ycoor = item['y']
         list.append([xcoor, ycoor])
-    
+        
+    for item2 in data['snakes']['data']:
+		# Could include length
+	for item3 in item2['body']['data'][: - 1]:
+		xcoor = item3['x']
+		ycoor = item3['y']
+		list.append([int(xcoor), int(ycoor)])
+        
     # List needs to contain the previous 10 conditions, no more
     # Checks to see if direction to the up, down, left, right is in the list
     for c1 in list:
 	    if [snakehead_x, snakehead_y - 1] in list:
 		    list2.append(['down'])
-		    priority.append(['u', 2500])
+		    priority.append(['u', 1000])
 		    break
 			
     for c2 in list:
 	    if [snakehead_x - 1, snakehead_y] in list:
 		    list2.append(['right'])
-		    priority.append(['l', 2500])
+		    priority.append(['l', 1000])
 		    break
 
     for c3 in list:
 	    if [snakehead_x + 1, snakehead_y] in list:
 		    list2.append(['left'])
-		    priority.append(['r', 2500])
+		    priority.append(['r', 1000])
 		    break
 			
     for c4 in list:
 	    if [snakehead_x, snakehead_y + 1] in list:
 		    list2.append(['up'])
-		    priority.append(['d', 2500])
+		    priority.append(['d', 1000])
 		    break
 		
    
@@ -142,8 +149,7 @@ def move():
 		    #priority.append(['u', 9000])
 		    # Direction is not left
 		    if [j, 1] in list:
-		        #priority.append(['d', 400])
-		        continue
+		        priority.append(['d', 400])
 				
 		elif [width - 1, k] in list:
 		    priority.append(['r', 900])
@@ -157,54 +163,54 @@ def move():
         # direction = 'left';
 	#priority.append(['u', 30])
 	#priority.append(['d', 30])
-	priority.append(['d', 500])
-        priority.append(['u', 500])
-        priority.append(['r', 500])
+	priority.append(['d', 350])
+        priority.append(['u', 350])
+        priority.append(['r', 350])
         
     elif (snakehead_x <= food_x and snakehead_y >= food_y):
         # direction = 'right'
         #priority.append(['u', 30])
         #priority.append(['d', 30])
-        priority.append(['d', 500])
-        priority.append(['l', 500])
-        priority.append(['u', 500])
+        priority.append(['d', 350])
+        priority.append(['l', 350])
+        priority.append(['u', 350])
 		
     elif (snakehead_x >= food_x and snakehead_y <= food_y):
         # direction = 'up'
         #priority.append(['l', 30])
-        priority.append(['r', 500])
-	priority.append(['l', 500])
-	priority.append(['u', 500])
+        priority.append(['r', 350])
+	priority.append(['l', 350])
+	priority.append(['u', 350])
 		
     else:
         # direction = 'down'
-        priority.append(['l', 500])
-        priority.append(['r', 500])
-        priority.append(['d', 500])
+        priority.append(['l', 350])
+        priority.append(['r', 350])
+        priority.append(['d', 350])
 		#priority.append(['l', 30])
 		#priority.append(['r', 30])
 	
 
  
     if food_x + 1 == snakehead_x and food_y == snakehead_y:
-    	    priority.append(['r', 970])
-	    priority.append(['d', 970])
-	    priority.append(['u', 970])
+    	    priority.append(['r', 97])
+	    priority.append(['d', 97])
+	    priority.append(['u', 97])
 		
     elif food_x - 1 == snakehead_x and food_y == snakehead_y:
-	    priority.append(['l', 970])
-	    priority.append(['d', 970])
-	    priority.append(['u', 970])
+	    priority.append(['l', 97])
+	    priority.append(['d', 97])
+	    priority.append(['u', 97])
 		
     elif food_y + 1 == snakehead_y and food_x == snakehead_x:
-	    priority.append(['r', 970])
-	    priority.append(['l', 970])
-	    priority.append(['d', 970])
+	    priority.append(['r', 97])
+	    priority.append(['l', 97])
+	    priority.append(['d', 97])
 		
     elif food_y - 1 == snakehead_y and food_x == snakehead_x:
-	    priority.append(['r', 970])
-	    priority.append(['l', 970])
-	    priority.append(['u', 970])
+	    priority.append(['r', 97])
+	    priority.append(['l', 97])
+	    priority.append(['u', 97])
         
     else:
 	    priority.append(['r', 7])
@@ -212,12 +218,83 @@ def move():
 	    priority.append(['u', 7])
 	    priority.append(['d', 7])
 	    
-    # If food timer < 50
-	# remove all elements from the priority 
-	# Locate the nearest food
-	# Add new elements checking:
-    # elements of snake
-	# closest food position
+    if snakehead_x == 0 and snakehead_y == 0 and [1, 0] in list:
+	    priority.append(['r', 190000])
+	    priority.append(['l', 190000])
+	    priority.append(['u', 190000])
+	    # Last one is debatable
+
+    if snakehead_x == 0 and snakehead_y == 0 and [0, 1] in list:
+	    priority.append(['u', 160000])
+	    priority.append(['l', 160000])
+	    priority.append(['d', 160000])
+	    # Last one is debatable
+	   
+    if snakehead_x == width - 1 and snakehead_y == 0 and [width - 2, 0] in list:
+	    priority.append(['r', 170000])
+	    priority.append(['l', 170000])
+	    priority.append(['u', 170000])
+	    # Last one is debatable
+	 
+    if snakehead_x == width - 1 and snakehead_y == 0 and [width - 1, 1] in list:
+	    priority.append(['r', 100000])
+	    priority.append(['u', 100000])
+	    priority.append(['d', 100000])
+	    # Last one is debatable
+	    
+    if snakehead_x == width - 1 and snakehead_y == height - 1 and [width - 1, height - 2] in list:
+	    priority.append(['r', 110000])
+	    priority.append(['u', 110000])
+	    priority.append(['d', 110000])
+	    # Last one is debatable
+	  
+    if snakehead_x == width - 1 and snakehead_y == height - 2 and [width - 2, height - 2] in list:
+	    priority.append(['r', 130000])
+	    priority.append(['l', 130000])
+	    priority.append(['d', 130000])
+	    # Last one is debatable
+	    
+    if snakehead_x == width - 1 and snakehead_y == height - 2 and [width - 1, height - 3] in list:
+	    priority.append(['r', 130000])
+	    priority.append(['u', 130000])
+	    priority.append(['d', 130000])
+	    # Last one is debatable
+
+    if snakehead_x == width - 1 and snakehead_y == height - 1 and [width - 2, height - 1] in list:
+	    priority.append(['r', 130000])
+	    priority.append(['l', 130000])
+	    priority.append(['d', 130000])
+	    # Last one is debatable
+	 
+    if snakehead_x == 0 and snakehead_y == height - 1 and [0, height - 2] in list:
+	    priority.append(['d', 120000])
+	    priority.append(['l', 120000])
+	    priority.append(['u', 120000])
+	    # Last one is debatable
+	    
+    if snakehead_x == 0 and snakehead_y == height - 1 and [1, height - 1] in list:
+	    priority.append(['r', 150000])
+	    priority.append(['l', 150000])
+	    priority.append(['d', 150000])
+	    # Last one is debatable
+
+    if snakehead_x == 0 and snakehead_y == height - 2 and [1, height - 2] in list:
+	    priority.append(['r', 150000])
+	    priority.append(['l', 150000])
+	    priority.append(['d', 150000])
+	    # Last one is debatable
+
+    if snakehead_x == 0 and snakehead_y == height - 2 and [1, height - 2] in list:
+	    priority.append(['r', 155000])
+	    priority.append(['l', 155000])
+	    priority.append(['u', 155000])
+	    # Last one is debatable
+		    
+	    
+    # go to furthest away food each time
+    # Check to see if any snakehead_x coordinates in list, go opposite direction of x
+    # Dont turn right if head x + 1, y + 1 and x, y + 1 in list
+    # Dont turn left if 
     
     u = 1
     d = 2
