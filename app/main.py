@@ -128,28 +128,19 @@ def move():
     for j in range(0, width):
 		if [j, 0] in list:
 		    #Direction is not down
-		    priority.append(['u', 90]) 
-		    #priority.append(['l', 9000])
-		    #priority.append(['r', 9000])
-		    #break
-		    #if [j, height - 2] in list:
-		        #priority.append(['d', 400])
+		    priority.append(['u', 90])
 		    if snakehead_x == width - 1:
-		   	    priority.append(['d', 3000])
-		   	    priority.append(['r', 3000])
-		            priority.append(['l', 3000])
+		   	    priority.append(['d', 300])
+		   	    priority.append(['r', 300])
+		            priority.append(['l', 300])
 				
 		elif [j, height - 1] in list:
 		    # Direction is not up
 		    priority.append(['d', 90])
-		    #priority.append(['l', 9000])
-		    #priority.append(['r', 9000])
-		    #if [j, 1] in list:
-		        #priority.append(['u', 400])
 		    if snakehead_x == width - 1:
-		    	    priority.append(['u', 3000])
-		    	    priority.append(['l', 3000])
-		    	    priority.append(['r', 3000])
+		    	    priority.append(['u', 300])
+		    	    priority.append(['l', 300])
+		    	    priority.append(['r', 300])
 				
     for k in range(0, height):
 		if [0, k] in list:
@@ -161,9 +152,9 @@ def move():
 		    #priority.append(['u', 9000])
 		    # Direction is not left
 		    if [j, 1] in list:
-		        priority.append(['r', 3000])
-		        priority.append(['d', 3000])
-		        priority.append(['u', 3000])
+		        priority.append(['r', 300])
+		        priority.append(['d', 300])
+		        priority.append(['u', 300])
 				
 		elif [width - 1, k] in list:
 		    priority.append(['r', 90])
@@ -171,9 +162,9 @@ def move():
 		    #priority.append(['d', 9000])
 		    # Direction is not right
 		    if [j, 1] in list:
-		        priority.append(['l', 3000])
-		        priority.append(['d', 3000])
-		        priority.append(['u', 3000])
+		        priority.append(['l', 300])
+		        priority.append(['d', 300])
+		        priority.append(['u', 300])
 		    #if snakehead_x == width - 1:
 		    #	    priority.append(['r', 1000])
 	
