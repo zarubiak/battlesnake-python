@@ -72,7 +72,6 @@ def move():
 	
 	# Locate closest food
 	# Loop that finds all the food available
-	# locate and label closest food x, y
     for f in data['food']['data']:
 	    f_x = f['x']
 	    f_y = f['y']
@@ -114,103 +113,94 @@ def move():
    
     width = data.get('width')
     height = data.get('height')
-
-    # This will be the final check, we need to set priorities to 0 at the last step
-    for j in range(0, width):
+	
+	# This will be the final check, we need to set priorities to 0 at the last step
+    for j in range(0, width-1):
 		if [j, 0] in list:
 		    #Direction is not down
-		    priority.append(['u', 9000]) 
-		    #priority.append(['l', 9000])
-		    #priority.append(['r', 9000])
-		    #break
-		    if [j, height - 2] in list:
-		        priority.append(['d', 4000])
-				
-		elif [j, height - 1] in list:
-		    # Direction is not up
-		    priority.append(['d', 9000])
-		    #priority.append(['l', 9000])
-		    #priority.append(['r', 9000])
-		    if [j, 1] in list:
-		        priority.append(['u', 4000])
-				
-    for k in range(0, height):
-		if [0, k] in list:
+			priority.append(['u', 9000]) 
 		    priority.append(['l', 9000])
-		    #priority.append(['d', 9000])
-		    #priority.append(['u', 9000])
-		    # Direction is not left
-		    if [j, 1] in list:
-		        priority.append(['d', 4000])
-				
-		elif [width - 1, k] in list:
 		    priority.append(['r', 9000])
-		    #priority.append(['u', 9000])
-		    #priority.append(['d', 9000])
-		    # Direction is not right
-		    if [j, 1] in list:
-		        priority.append(['u', 4000])
-		        
 			
-    if (snakehead_x >= food_x and snakehead_y >= food_y):
+		if [j, height - 1] in list:
+	        # Direction is not up
+			priority.append(['d', 9000])
+			priority.append(['l', 9000])
+			priority.append(['r', 9000])
+		break
+			
+    for k in range(0, height-1):
+	    if [0, k] in list:
+		    priority.append(['l', 9000])
+            priority.append(['d', 9000])
+            priority.append(['u', 9000])
+	    break
+			# Direction is not left
+			
+        elif [width - 1, k] in list:
+			priority.append(['r', 9000])
+			priority.append(['u', 9000])
+			priority.append(['d', 9000])
+		break
+			
+    if (snakehead_x > food_x and snakehead_y > food_y):
         # direction = 'left';
-	#priority.append(['u', 30])
-	#priority.append(['d', 30])
-	priority.append(['d', 1000])
-        priority.append(['u', 1000])
-        priority.append(['r', 1000])
+	    #priority.append(['u', 30])
+	    #priority.append(['d', 30])
+        priority.append(['d', 2000])
+        priority.append(['u', 2000])
+        priority.append(['r', 2000])
         
-    elif (snakehead_x <= food_x and snakehead_y >= food_y):
+    elif (snakehead_x < food_x and snakehead_y > food_y):
         # direction = 'right'
-        #priority.append(['u', 30])
-        #priority.append(['d', 30])
-        priority.append(['d', 1000])
-        priority.append(['l', 1000])
-        priority.append(['u', 1000])
+		#priority.append(['u', 30])
+		#priority.append(['d', 30])
+        priority.append(['d', 2000])
+        priority.append(['l', 2000])
+        priority.append(['u', 2000])
 		
-    elif (snakehead_x >= food_x and snakehead_y <= food_y):
+    elif (snakehead_x > food_x and snakehead_y < food_y):
         # direction = 'up'
-        #priority.append(['l', 30])
-        priority.append(['r', 1000])
-	priority.append(['l', 1000])
-	priority.append(['u', 1000])
+		#priority.append(['l', 30])
+	    priority.append(['r', 2000])
+	    priority.append(['l', 2000])
+	    priority.append(['d', 2000])
 		
     else:
         # direction = 'down'
-        priority.append(['l', 1000])
-        priority.append(['r', 1000])
-        priority.append(['d', 1000])
+        priority.append(['l', 2000])
+        priority.append(['r', 2000])
+        priority.append(['d', 2000])
 		#priority.append(['l', 30])
 		#priority.append(['r', 30])
 	
 
  
     if food_x + 1 == snakehead_x and food_y == snakehead_y:
-    	    priority.append(['r', 1700])
-	    priority.append(['d', 1700])
-	    priority.append(['u', 1700])
+	    priority.append(['r', 7000])
+	    priority.append(['d', 7000])
+	    priority.append(['u', 7000])
 		
     elif food_x - 1 == snakehead_x and food_y == snakehead_y:
-	    priority.append(['l', 1700])
-	    priority.append(['d', 1700])
-	    priority.append(['u', 1700])
+	    priority.append(['l', 7000])
+	    priority.append(['d', 7000])
+	    priority.append(['u', 7000])
 		
     elif food_y + 1 == snakehead_y and food_x == snakehead_x:
-	    priority.append(['r', 1700])
-	    priority.append(['l', 1700])
-	    priority.append(['d', 1700])
+	    priority.append(['r', 7000])
+	    priority.append(['l', 7000])
+	    priority.append(['d', 7000])
 		
     elif food_y - 1 == snakehead_y and food_x == snakehead_x:
-	    priority.append(['r', 1700])
-	    priority.append(['l', 1700])
-	    priority.append(['u', 1700])
+	    priority.append(['r', 7000])
+	    priority.append(['l', 7000])
+	    priority.append(['u', 7000])
         
     else:
 	    priority.append(['r', 7])
 	    priority.append(['l', 7])
 	    priority.append(['u', 7])
 	    priority.append(['d', 7])
-	    
     # If food timer < 50
 	# remove all elements from the priority 
 	# Locate the nearest food
