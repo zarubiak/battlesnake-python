@@ -38,7 +38,7 @@ def start():
         'taunt': '{} ({}x{})'.format(game_id, board_width, board_height),
         'head_url': head_url,
         'name': 'battlesnake-python',
-		'head_type': 'pixel',
+		'head_type': 'shades',
 		'tail_type': 'curled',
 		'secondary_color': '#FF69B4'
     }
