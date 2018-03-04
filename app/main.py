@@ -3,12 +3,12 @@ import os
 import random
 
 global directions
-'''
+
 global up
 global down
 global left
 global right
-'''
+
 
 @bottle.route('/')
 def static():
@@ -75,10 +75,11 @@ def move():
 	# Locate closest food
 	# Loop that finds all the food available
 	# locate and label closest food x, y
+'''
     for f in data['food']['data']:
 	    f_x = f['x']
 	    f_y = f['y']
-	    snake_food.append([f_x, f_y])
+	    snake_food.append([f_x, f_y])'''
 	
 	
 	# List that finds all of your coordinates as the snake
