@@ -65,7 +65,7 @@ def move():
     food_y = int(data['food']['data'][0]['y'])
 	
     # Probably don't need list2
-    snake_food = []
+    # snake_food = []
     list = []
     list2 = []
     priority = []
@@ -75,7 +75,7 @@ def move():
 	# Locate closest food
 	# Loop that finds all the food available
 	# locate and label closest food x, y
-'''
+    '''
     for f in data['food']['data']:
 	    f_x = f['x']
 	    f_y = f['y']
