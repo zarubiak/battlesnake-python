@@ -198,34 +198,6 @@ def move():
 		    priority.append(['u', 1])
 		    priority.append(['d', 1])
 		    
-    if food_timer <= 25:
-    	    if food_x + 1 == snakehead_x and food_y == snakehead_y:
-		    priority.append(['r', 400])
-		    priority.append(['d', 400])
-		    priority.append(['u', 400])
-			
-	    elif food_x - 1 == snakehead_x and food_y == snakehead_y:
-		    priority.append(['l', 400])
-		    priority.append(['d', 400])
-		    priority.append(['u', 400])
-			
-	    elif food_y + 1 == snakehead_y and food_x == snakehead_x:
-		    priority.append(['r', 400])
-		    priority.append(['l', 400])
-		    priority.append(['d', 400])
-			
-	    elif food_y - 1 == snakehead_y and food_x == snakehead_x:
-		    priority.append(['r', 400])
-		    priority.append(['l', 400])
-		    priority.append(['u', 400])
-		
-	    else:
-		    priority.append(['r', 1])
-		    priority.append(['l', 1])
-		    priority.append(['u', 1])
-		    priority.append(['d', 1])
-        
-        
 			
     if (snakehead_x >= food_x and snakehead_y >= food_y):
 	priority.append(['d', 35])
